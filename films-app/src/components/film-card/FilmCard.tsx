@@ -46,7 +46,7 @@ export function FilmCard({
             <div className="film-card_wrapper">
                 <div className="film-poster">
                     <img
-                        src={`https://image.tmdb.org/t/p/w200${poster_path}`}
+                        src={`https://image.tmdb.org/t/p/w300${poster_path}`}
                         className="img-card"
                         alt="#"
                     />

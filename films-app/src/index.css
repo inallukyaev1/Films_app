@@ -2,7 +2,9 @@ body {
     margin: 0;
     padding: 0;
     font-size: 24px;
-    background-color: powderblue;
+    background-image: linear-gradient(90deg, #41295a, #2f0743);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
 }
 ul {
     list-style-type: none;
@@ -26,6 +28,7 @@ button {
     max-width: 1400px;
     margin: 0 auto;
 }
+
 button.auth-btn,
 button.home-btn,
 button.filter-reset {
@@ -49,15 +52,17 @@ button.filter-reset {
     -o-transition: background-color 0.1s linear;
     transition: background-color 0.1s linear;
     cursor: pointer;
+    outline: none;
+    border: none;
+    border-radius: 10px;
 }
 button {
-    background-color: rgb(43, 153, 91);
-    border: 1px solid rgb(33, 126, 74);
+    background-color: #6100c2;
 }
 
 button.auth-btn:hover,
 button.home-btn:hover,
 button.filter-reset:hover,
 .comeIn-btn:hover {
-    background-color: rgb(75, 183, 141);
+    background-color: #5801b0;
 }

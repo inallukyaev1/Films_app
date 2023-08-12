@@ -4,10 +4,7 @@ import { PaginationBlock } from '../pagination-block/pagination-block';
 import { Genres } from '../genres/genres.js';
 import { FilmsYears } from '../films-years/filmsYears.js';
 import { FilmRate } from '../film-rate/film-rate.js';
-import {
-    updateCurrentListFilmsAction,
-    resetCurrentListFilmsAction,
-} from '../redux-reduce/actions';
+import { resetCurrentListFilmsAction } from '../redux-reduce/actions';
 import { useEffect, useState } from 'react';
 import { DefaultStateInterface, PayloadInterface } from '../elements/elements';
 
@@ -63,7 +60,6 @@ export function Filters() {
     }, [currentFilter, watchLater, favoriteFilms]);
     return (
         <div className="filter-block">
-            <div className="filter-title">Фильтры:</div>
             <form action="" className="form">
                 <button
                     className="filter-reset"

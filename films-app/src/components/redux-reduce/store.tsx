@@ -10,7 +10,7 @@ export const reducer = (
             return {
                 ...state,
                 filteredFilms: action.payload,
-                otherPage: Math.ceil(action.payload.length / 10),
+                otherPage: Math.ceil(action.payload.length / 9),
             };
 
         case 'filmDescription':
@@ -43,7 +43,7 @@ export const reducer = (
         case 'updateOtherPage':
             return {
                 ...state,
-                otherPage: Math.ceil(action.payload / 10),
+                otherPage: Math.ceil(action.payload / 9),
             };
 
         case 'nextPage':

@@ -25,11 +25,13 @@ export function Genres() {
             {allGenre.map((item) => (
                 <div key={item.id} className="checkbox-block">
                     <input
+                        className="custom-checkbox"
                         type="checkbox"
                         id={item.id}
                         name={item.name}
                         onChange={(e) => filterforGenre(e)}
                     />
+
                     <label htmlFor={item.id}>{item.name}</label>
                 </div>
             ))}

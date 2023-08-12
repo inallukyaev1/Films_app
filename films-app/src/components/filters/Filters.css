@@ -1,8 +1,10 @@
 .filter-block {
-    background-color: rgb(2, 196, 196);
-    width: 20%;
+    background-color: #21201e;
+    width: 274px;
     height: 100%;
     padding: 0 20px;
+    color: white;
+    border-radius: 20px;
 }
 
 .filter-title {
@@ -12,6 +14,7 @@
 }
 
 .form {
+    margin-top: 30px;
     display: flex;
     justify-content: space-between;
     align-items: center;

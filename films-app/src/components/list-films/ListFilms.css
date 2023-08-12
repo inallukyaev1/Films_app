@@ -1,12 +1,17 @@
 .listFilms-wrapper {
     position: relative;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     flex-wrap: wrap;
-    column-gap: 40px;
-    row-gap: 40px;
     width: 80%;
+    row-gap: 30px;
     margin: 0;
     padding: 0;
     padding-top: 20px;
+}
+
+.listFilms-wrapper li {
+    display: flex;
+    margin-left: 30px;
+    height: 669px;
 }

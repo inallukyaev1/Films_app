@@ -96,8 +96,8 @@ export function ListFilms() {
     }
 
     useEffect(() => {
-        const lastIndex = currentPages * 10;
-        const firstIndex = lastIndex - 10;
+        const lastIndex = currentPages * 9;
+        const firstIndex = lastIndex - 9;
         dispatch({
             type: 'addWatchLater',
             payload: listFilmsLater,
