@@ -1,5 +1,6 @@
 .film-card {
     width: 330px;
+    max-height: 100%;
     border-radius: 21px;
     box-shadow: 0 2px 30px rgb(4 0 0 / 20%);
     background-color: #ffaa00;
@@ -48,8 +49,27 @@ svg {
     flex-direction: column;
     flex: 1 1 auto;
     padding: 10px;
-    height: 100%;
 }
 .film-title {
     flex: 1 1 auto;
+}
+
+.film-details {
+    height: 43px;
+    font-weight: 400;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 23px;
+    letter-spacing: 4px;
+    transition: 0.5s all;
+    background-color: #21201e;
+}
+
+.film-details:hover {
+    background-color: #6100c2;
+}
+.film-details a {
+    width: 100%;
 }

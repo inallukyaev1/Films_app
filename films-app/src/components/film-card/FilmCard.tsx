@@ -1,8 +1,7 @@
 import './FilmCard.css';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link, Outlet } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useState } from 'react';
-import { getFromLocalStorage } from '../../methods/localStorageAction';
 import { Star } from '../../assets/star';
 import { BookMark } from '../../assets/bookmark';
 
@@ -56,36 +55,15 @@ export function FilmCard({
                         <span className="film-rate">
                             Рейтинг: {voteAverage}
                         </span>
-
-                        {isAuthorization ? (
-                            <div className="films-favorite">
-                                <Star
-                                    color={
-                                        favoriteChecked === true
-                                            ? '#6100c2'
-                                            : 'transparent'
-                                    }
-                                    onClick={() => {
-                                        CheckedAddFavorite();
-                                        return addFavoriteFilms(item, title);
-                                    }}
-                                ></Star>
-                                <BookMark
-                                    color={
-                                        checked === true
-                                            ? 'yellow'
-                                            : 'transparent'
-                                    }
-                                    onClick={() => {
-                                        CheckedAdd();
-                                        return addToWatchLater(item, title);
-                                    }}
-                                ></BookMark>
-                            </div>
-                        ) : (
-                            <div className="films-favorite">
-                                <Link to="./authorization">
+                        <div className="films-favorite">
+                            {isAuthorization ? (
+                                <>
                                     <Star
+                                        color={
+                                            favoriteChecked === true
+                                                ? '#6100c2'
+                                                : 'transparent'
+                                        }
                                         onClick={() => {
                                             CheckedAddFavorite();
                                             return addFavoriteFilms(
@@ -93,18 +71,11 @@ export function FilmCard({
                                                 title
                                             );
                                         }}
-                                        color={
-                                            favoriteChecked === true
-                                                ? '#6100c2'
-                                                : 'transparent'
-                                        }
                                     ></Star>
-                                </Link>
-                                <Link to="./authorization">
                                     <BookMark
                                         color={
                                             checked === true
-                                                ? 'yellow'
+                                                ? '#6100c2'
                                                 : 'transparent'
                                         }
                                         onClick={() => {
@@ -112,12 +83,23 @@ export function FilmCard({
                                             return addToWatchLater(item, title);
                                         }}
                                     ></BookMark>
-                                </Link>
-                            </div>
-                        )}
+                                </>
+                            ) : (
+                                <>
+                                    <Link to="./authorization">
+                                        <Star color={'transparent'}></Star>
+                                    </Link>
+                                    <Link to="./authorization">
+                                        <BookMark
+                                            color={'transparent'}
+                                        ></BookMark>
+                                    </Link>
+                                </>
+                            )}
+                        </div>
                     </div>
                     <h3 className="film-title">{title}</h3>
-                    <div className="film-details">
+                    <button className="film-details">
                         <Link
                             onClick={filmDescription}
                             to="./film-description"
@@ -126,7 +108,7 @@ export function FilmCard({
                         >
                             Подробнее
                         </Link>
-                    </div>
+                    </button>
                 </div>
             </div>
         </div>

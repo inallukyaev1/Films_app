@@ -128,11 +128,11 @@ export function ListFilms() {
         currentPages,
     ]);
     return (
-        <ul className="listFilms-wrapper">
+        <ul className="listFilms-wrapper ">
             {catalogFilms.length === 0
                 ? 'Фильмов нет'
                 : catalogFilms.map((item: PayloadInterface) => (
-                      <li key={item.id}>
+                      <li key={item.id} className="film-item">
                           <FilmCard
                               listFilmsLater={listFilmsLater}
                               favoriteFilms={favoriteFilms}

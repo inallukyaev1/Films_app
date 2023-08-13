@@ -29,9 +29,6 @@ export function FilmsYears() {
                     </option>
                 );
             })}
-            <option key="Показать все" value={'Показать все'}>
-                Показать все
-            </option>
         </select>
     );
 }
