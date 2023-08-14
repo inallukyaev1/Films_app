@@ -5,40 +5,13 @@ import { useState } from 'react';
 import { Star } from '../../assets/star';
 import { BookMark } from '../../assets/bookmark';
 
-export function FilmCard({
-    favoriteFilms,
-    listFilmsLater,
-    title,
-    voteAverage,
-    poster_path,
-    item,
-    addToWatchLater,
-    addFavoriteFilms,
-}) {
+export function FilmCard({ title, voteAverage, poster_path, item }) {
     const dispatch = useDispatch();
-
-    const [checked, setChecked] = useState(
-        listFilmsLater.filter((item) => item.title === title).length !== 0
-            ? true
-            : false
-    );
-    const [favoriteChecked, setfavoriteChecked] = useState(
-        favoriteFilms.filter((item) => item.title === title).length !== 0
-            ? true
-            : false
-    );
     const isAuthorization = useSelector((state) => state.isAuthorization);
 
-    function CheckedAdd() {
-        setChecked(!checked);
-    }
-    function CheckedAddFavorite() {
-        setfavoriteChecked(!favoriteChecked);
-    }
-
-    function filmDescription() {
+    const filmDescription = () => {
         dispatch({ type: 'filmDescription', payload: item });
-    }
+    };
 
     return (
         <div className="film-card">
@@ -58,30 +31,10 @@ export function FilmCard({
                         <div className="films-favorite">
                             {isAuthorization ? (
                                 <>
-                                    <Star
-                                        color={
-                                            favoriteChecked === true
-                                                ? '#6100c2'
-                                                : 'transparent'
-                                        }
-                                        onClick={() => {
-                                            CheckedAddFavorite();
-                                            return addFavoriteFilms(
-                                                item,
-                                                title
-                                            );
-                                        }}
-                                    ></Star>
+                                    <Star item={item} title={title}></Star>
                                     <BookMark
-                                        color={
-                                            checked === true
-                                                ? '#6100c2'
-                                                : 'transparent'
-                                        }
-                                        onClick={() => {
-                                            CheckedAdd();
-                                            return addToWatchLater(item, title);
-                                        }}
+                                        item={item}
+                                        title={title}
                                     ></BookMark>
                                 </>
                             ) : (

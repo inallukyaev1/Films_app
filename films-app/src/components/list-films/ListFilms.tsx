@@ -32,77 +32,16 @@ export function ListFilms() {
     const currentYear = useSelector(
         (state: { currentYear: number }) => state.currentYear
     );
-    const [favoriteFilms, setfavoriteFilms] = useState(
-        getFromLocalStorage('listFilmFavorite') || []
-    );
 
     const [catalogFilms, setCatalogFilms] = useState<PayloadInterface[]>([]);
     const currentPages = useSelector(
         (state: { currentPage: number }) => state.currentPage
     );
-    function addToWatchLater(item_films: PayloadInterface[], title: string) {
-        if (listFilmsLater.length === 0) {
-            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
-            addToLocalStorage('listFilmsLater', [item_films]);
-            return;
-        }
-
-        const filteredFilmLater = listFilmsLater.filter(
-            (item: PayloadInterface) => item.title === title
-        );
-        if (filteredFilmLater.length === 0) {
-            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
-            addToLocalStorage('listFilmsLater', [
-                ...listFilmsLater,
-                item_films,
-            ]);
-            return;
-        } else {
-            const filteredFilmLater = listFilmsLater.filter(
-                (item: PayloadInterface) => item.title !== title
-            );
-            setListFilmsLater(() => filteredFilmLater);
-
-            addToLocalStorage('listFilmsLater', filteredFilmLater);
-        }
-    }
-
-    function addFavoriteFilms(item_films: PayloadInterface, title: string) {
-        if (favoriteFilms.length === 0) {
-            setfavoriteFilms((el: []) => [...el, item_films]);
-            addToLocalStorage('listFilmFavorite', [item_films]);
-            return;
-        }
-        const filteredFilmLater = favoriteFilms.filter(
-            (item: PayloadInterface) => item.title === title
-        );
-        if (filteredFilmLater.length === 0) {
-            setfavoriteFilms((el: PayloadInterface[]) => {
-                return [...el, item_films];
-            });
-            addToLocalStorage('listFilmFavorite', [
-                ...favoriteFilms,
-                item_films,
-            ]);
-            return;
-        } else {
-            const filteredFilmLater = favoriteFilms.filter(
-                (item: PayloadInterface) => item.title !== title
-            );
-
-            setfavoriteFilms(() => filteredFilmLater);
-            addToLocalStorage('listFilmFavorite', filteredFilmLater);
-        }
-    }
 
     useEffect(() => {
         const lastIndex = currentPages * 9;
         const firstIndex = lastIndex - 9;
-        dispatch({
-            type: 'addWatchLater',
-            payload: listFilmsLater,
-        });
-        dispatch({ type: 'addFavoriteFilms', payload: favoriteFilms });
+
         let sortedFilms = applyFilters(
             [...allFilms],
             valuePopularity,
@@ -124,7 +63,6 @@ export function ListFilms() {
         currentYear,
         allFilms,
         listFilmsLater,
-        favoriteFilms,
         currentPages,
     ]);
     return (
@@ -134,10 +72,6 @@ export function ListFilms() {
                 : catalogFilms.map((item: PayloadInterface) => (
                       <li key={item.id} className="film-item">
                           <FilmCard
-                              listFilmsLater={listFilmsLater}
-                              favoriteFilms={favoriteFilms}
-                              addToWatchLater={addToWatchLater}
-                              addFavoriteFilms={addFavoriteFilms}
                               item={item}
                               poster_path={
                                   item.poster_path || item.backdrop_path

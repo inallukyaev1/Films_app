@@ -11,7 +11,6 @@ export function Authorization() {
 
     function formHandler(e) {
         e.preventDefault();
-        console.log(login, password);
         if (login === 'Инал' && password === 'Лукьяев') {
             console.log('Добро Пожаловать');
             dispatch({ type: 'exampleAuthorization', payload: true });

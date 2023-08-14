@@ -3,7 +3,11 @@ import { createStore } from 'redux';
 
 export const reducer = (
     state = defaultState,
-    action: { type: string; payload: []; calculatedNumber: number }
+    action: {
+        type: string;
+        payload: [];
+        calculatedNumber: number;
+    }
 ) => {
     switch (action.type) {
         case 'filteredFilms':
@@ -43,13 +47,13 @@ export const reducer = (
         case 'updateOtherPage':
             return {
                 ...state,
-                otherPage: Math.ceil(action.payload / 9),
+                otherPage: Math.ceil(Number(action.payload) / 9),
             };
 
         case 'nextPage':
             return {
                 ...state,
-                currentPage: state.currentPage + action.payload,
+                currentPage: state.currentPage + Number(action.payload),
             };
         case 'resetCurrentPage':
             return {
@@ -57,10 +61,9 @@ export const reducer = (
                 currentPage: action.payload,
             };
         case 'prevPage':
-            console.log(action.payload);
             return {
                 ...state,
-                currentPage: state.currentPage - action.payload,
+                currentPage: state.currentPage - Number(action.payload),
             };
         case 'addPopularity':
             return {

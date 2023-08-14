@@ -11,7 +11,6 @@ import { NextPage } from '../next-page/next-page';
 
 export function PaginationBlock() {
     const dispatch = useDispatch();
-
     const currentPage = useSelector(
         (state: { currentPage: number }) => state.currentPage
     );
@@ -22,14 +21,7 @@ export function PaginationBlock() {
     const OtherPage = useSelector(
         (state: { otherPage: number }) => state.otherPage
     );
-
-    useEffect(() => {
-        if (currentPage > OtherPage) {
-            dispatch(resetNextPageAction(1));
-        }
-    }, [currentPage, OtherPage]);
-
-    function PrevCurrentPageHandler() {
+    const PrevCurrentPageHandler = () => {
         if (currentPage > 1) {
             dispatch(updatePrevPageAction(1));
             dispatch(
@@ -39,7 +31,14 @@ export function PaginationBlock() {
                 ])
             );
         }
-    }
+    };
+
+    useEffect(() => {
+        if (currentPage > OtherPage) {
+            dispatch(resetNextPageAction(1));
+        }
+    }, [currentPage, OtherPage]);
+
     return (
         <div className="nav-btns">
             <button
@@ -47,7 +46,7 @@ export function PaginationBlock() {
                 className={
                     currentPage === 1 ? 'prev-btn disabled ' : 'prev-btn'
                 }
-                disabled={currentPage === 1 ? 'disabled' : null}
+                disabled={currentPage === 1 ? true : undefined}
             >
                 Назад
             </button>

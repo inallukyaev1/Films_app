@@ -6,7 +6,7 @@ import { FilmsYears } from '../films-years/filmsYears.js';
 import { FilmRate } from '../film-rate/film-rate.js';
 import { resetCurrentListFilmsAction } from '../redux-reduce/actions';
 import { useEffect, useState } from 'react';
-import { DefaultStateInterface, PayloadInterface } from '../elements/elements';
+import { DefaultStateInterface, selectedByTheUser } from '../elements/elements';
 
 export function Filters() {
     const dispatch = useDispatch();
@@ -21,13 +21,13 @@ export function Filters() {
     const watchLater = useSelector(
         (state: DefaultStateInterface) => state.watchLater
     );
-    function resetFilters() {
+    const resetFilters = () => {
         dispatch({ type: 'resetFilters' });
         dispatch(resetCurrentListFilmsAction());
         setCurrentFilter('');
-    }
+    };
 
-    function addWatchLater(e: React.ChangeEvent<HTMLInputElement>) {
+    const addWatchLater = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const inputValue = e.target.value;
         setCurrentFilter(inputValue);
         if (inputValue === 'Смотреть позже') {
@@ -43,7 +43,7 @@ export function Filters() {
         } else if (inputValue === 'Сбросить фильтр') {
             resetFilters();
         }
-    }
+    };
 
     useEffect(() => {
         if (currentFilter === 'Смотреть позже') {
@@ -73,15 +73,16 @@ export function Filters() {
                 {isAuthorization ? (
                     <span>
                         <div className="sort-by">Избранное:</div>
-                        <select name="" id="" onChange={addWatchLater}>
-                            <option value="Не выбрано">Не выбрано</option>
-                            <option value="Избранное">Избранное</option>
-                            <option value="Смотреть позже">
-                                Смотреть позже
-                            </option>
-                            <option value="Сбросить фильтр">
-                                Сбросить фильтр
-                            </option>
+                        <select
+                            name=""
+                            id=""
+                            onChange={(e) => addWatchLater(e)}
+                        >
+                            {selectedByTheUser.map((item) => (
+                                <option key={item} value={item}>
+                                    {item}
+                                </option>
+                            ))}
                         </select>
                     </span>
                 ) : null}

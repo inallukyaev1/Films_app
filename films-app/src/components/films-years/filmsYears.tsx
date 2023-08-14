@@ -1,18 +1,15 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { addCurrentYearAction } from '../redux-reduce/actions';
-import { PayloadInterface, filmreleaseYear } from '../elements/elements';
+import { filmreleaseYear } from '../elements/elements';
 
 import './filmsYears.css';
 
 export function FilmsYears() {
     const dispatch = useDispatch();
-    const allFilms = useSelector(
-        (state: { listFilm: PayloadInterface[] }) => state.listFilm
-    );
-    function filterForYears(e: React.ChangeEvent<HTMLSelectElement>) {
+    const filterForYears = (e: React.ChangeEvent<HTMLSelectElement>) => {
         const inputValue: string = e.target.value;
         dispatch(addCurrentYearAction(inputValue));
-    }
+    };
 
     return (
         <select

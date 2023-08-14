@@ -4204,3 +4204,9 @@ export const defaultState: DefaultStateInterface = {
 };
 
 export const filmreleaseYear = [2020, 2019, 2018, 2017, 'Показать все'];
+export const selectedByTheUser = [
+    'Не выбрано',
+    'Избранное',
+    'Смотреть позже',
+    'Сбросить фильтр',
+];

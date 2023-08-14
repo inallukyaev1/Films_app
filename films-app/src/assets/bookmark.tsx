@@ -1,11 +1,66 @@
+import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
+import {
+    getFromLocalStorage,
+    addToLocalStorage,
+} from '../methods/localStorageAction';
+import { useState, useEffect } from 'react';
+import { PayloadInterface } from '../elements/elements';
+
 export function BookMark(props) {
+    const dispatch = useDispatch();
+    const [listFilmsLater, setListFilmsLater] = useState(
+        getFromLocalStorage('listFilmsLater') || []
+    );
+    const addToWatchLater = (item_films: PayloadInterface[], title: string) => {
+        if (listFilmsLater.length === 0) {
+            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
+            addToLocalStorage('listFilmsLater', [item_films]);
+            return;
+        }
+
+        const filteredFilmLater = listFilmsLater.filter(
+            (item: PayloadInterface) => item.title === title
+        );
+        if (filteredFilmLater.length === 0) {
+            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
+            addToLocalStorage('listFilmsLater', [
+                ...listFilmsLater,
+                item_films,
+            ]);
+            return;
+        } else {
+            const filteredFilmLater = listFilmsLater.filter(
+                (item: PayloadInterface) => item.title !== title
+            );
+            setListFilmsLater(() => filteredFilmLater);
+
+            addToLocalStorage('listFilmsLater', filteredFilmLater);
+        }
+    };
+    const [checked, setChecked] = useState(
+        listFilmsLater.filter((item) => item.title === props.title).length !== 0
+            ? true
+            : false
+    );
+    const CheckedAdd = () => {
+        setChecked(!checked);
+    };
+
+    useEffect(() => {
+        dispatch({
+            type: 'addWatchLater',
+            payload: listFilmsLater,
+        });
+    }, [listFilmsLater]);
+
     return (
         <svg
             width="40px"
             height="40px"
             viewBox="0 0 32 32"
             xmlns="http://www.w3.org/2000/svg"
-            fill={props.color}
+            fill={checked === true ? '#6100c2' : 'transparent'}
         >
             <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
@@ -15,7 +70,10 @@ export function BookMark(props) {
             ></g>
             <g id="SVGRepo_iconCarrier">
                 <path
-                    onClick={props.onClick}
+                    onClick={() => {
+                        CheckedAdd();
+                        return addToWatchLater(props.item, props.title);
+                    }}
                     stroke="#000000"
                     strokeLinecap="round"
                     strokeLinejoin="round"

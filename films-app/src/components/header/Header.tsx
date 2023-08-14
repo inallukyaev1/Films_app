@@ -6,8 +6,9 @@ import './Header.css';
 
 export function Header() {
     const dispatch = useDispatch();
-    const AuthorizationLS: boolean | string =
-        JSON.parse(localStorage.getItem('isAuthorization')) || '';
+    const AuthorizationLS: boolean | string = JSON.parse(
+        localStorage.getItem('isAuthorization') || ''
+    );
 
     const isAuthorization = useSelector(
         (state: DefaultStateInterface) => state.isAuthorization

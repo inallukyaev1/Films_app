@@ -10,8 +10,7 @@ export function Genres() {
     function filterforGenre(
         e: React.ChangeEvent<HTMLInputElement>
     ): void | undefined {
-        const currentId: string = e.target.id;
-        console.log(currentId);
+        const currentId: string | number = e.target.id;
         if (e.target.checked) {
             dispatch(addGenreAction(genreId, currentId));
             return;
@@ -27,12 +26,12 @@ export function Genres() {
                     <input
                         className="custom-checkbox"
                         type="checkbox"
-                        id={item.id}
+                        id={`${item.id}`}
                         name={item.name}
                         onChange={(e) => filterforGenre(e)}
                     />
 
-                    <label htmlFor={item.id}>{item.name}</label>
+                    <label htmlFor={`${item.id}`}>{item.name}</label>
                 </div>
             ))}
         </fieldset>
