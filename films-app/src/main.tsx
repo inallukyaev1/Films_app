@@ -12,12 +12,6 @@ const router = createBrowserRouter([
     {
         path: '/',
         element: <App />,
-        children: [
-            {
-                path: '/authorization',
-                element: <Authorization />,
-            },
-        ],
     },
     {
         path: '/film-description',

@@ -1,6 +1,7 @@
 import { useSelector } from 'react-redux';
 import { DefaultStateInterface } from '../elements/elements';
 import { Header } from '../header/Header';
+import { Authorization } from '../authorization/authorization.js';
 import './film-more.css';
 
 export function FilmMore() {
@@ -20,6 +21,7 @@ export function FilmMore() {
                 backgroundColor: 'black',
             }} */
                     >
+                        <Authorization></Authorization>
                         <div className="posters">
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}

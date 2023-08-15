@@ -4164,6 +4164,7 @@ export interface DefaultStateInterface {
     watchLater: [];
     favoriteFilms: [];
     filmDescription: PayloadInterface;
+    isModalActive: boolean;
 }
 export const popularityFilmsSort: string[] = [
     'Популярные по убыванию',
@@ -4184,6 +4185,7 @@ export const defaultState: DefaultStateInterface = {
     currentYear: 2020,
     currentListFilm: [0, 10],
     isAuthorization: false,
+    isModalActive: false,
     filmDescription: {
         adult: false,
         backdrop_path: '/qjGrUmKW78MCFG8PTLDBp67S27p.jpg',

@@ -3,16 +3,12 @@ import { FilmCard } from '../film-card/FilmCard.js';
 import { useDispatch, useSelector } from 'react-redux';
 import { useState, useEffect } from 'react';
 import { applyFilters } from '../../methods/sortFilm.js';
-import {
-    getFromLocalStorage,
-    addToLocalStorage,
-} from '../../methods/localStorageAction';
+import { getFromLocalStorage } from '../../methods/localStorageAction';
 import {
     updateLastPageAction,
     resetNextPageAction,
 } from '../redux-reduce/actions';
 import { PayloadInterface } from '../elements/elements';
-
 export function ListFilms() {
     const dispatch = useDispatch();
     const [startSlice] = useSelector(
@@ -41,7 +37,6 @@ export function ListFilms() {
     useEffect(() => {
         const lastIndex = currentPages * 9;
         const firstIndex = lastIndex - 9;
-
         let sortedFilms = applyFilters(
             [...allFilms],
             valuePopularity,
@@ -67,6 +62,7 @@ export function ListFilms() {
     ]);
     return (
         <ul className="listFilms-wrapper ">
+            {' '}
             {catalogFilms.length === 0
                 ? 'Фильмов нет'
                 : catalogFilms.map((item: PayloadInterface) => (

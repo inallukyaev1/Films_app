@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
     getFromLocalStorage,
     addToLocalStorage,
@@ -9,6 +8,9 @@ import { PayloadInterface } from '../elements/elements';
 
 export function Star(props) {
     const dispatch = useDispatch();
+    const isModalActive = useSelector(
+        (state: { isModalActive: number }) => state.isModalActive
+    );
     const [favoriteFilms, setfavoriteFilms] = useState(
         getFromLocalStorage('listFilmFavorite') || []
     );
@@ -64,8 +66,15 @@ export function Star(props) {
         >
             <path
                 onClick={() => {
-                    CheckedAddFavorite();
-                    return addFavoriteFilms(props.item, props.title);
+                    if (!props.disabled) {
+                        CheckedAddFavorite();
+                        return addFavoriteFilms(props.item, props.title);
+                    } else {
+                        dispatch({
+                            type: 'toggleModalWindow',
+                            payload: true,
+                        });
+                    }
                 }}
                 fillRule="evenodd"
                 clipRule="evenodd"

@@ -6,9 +6,12 @@ import './Header.css';
 
 export function Header() {
     const dispatch = useDispatch();
-    const AuthorizationLS: boolean | string = JSON.parse(
-        localStorage.getItem('isAuthorization') || ''
+
+    const isModalActive = useSelector(
+        (state: { isModalActive: number }) => state.isModalActive
     );
+    const AuthorizationLS: boolean | string =
+        JSON.parse(localStorage.getItem('isAuthorization')) || '';
 
     const isAuthorization = useSelector(
         (state: DefaultStateInterface) => state.isAuthorization
@@ -39,12 +42,17 @@ export function Header() {
                     </li>
                     <li className="menu-list__item">
                         <button className="auth-btn" onClick={signInHandler}>
-                            <Link
-                                to="/authorization"
+                            <a
                                 className="menu-list__link"
+                                onClick={() => {
+                                    dispatch({
+                                        type: 'toggleModalWindow',
+                                        payload: !isModalActive,
+                                    });
+                                }}
                             >
                                 {isAuthorization ? 'Выйти' : 'Войти'}
-                            </Link>
+                            </a>
                         </button>
                     </li>
                 </ul>

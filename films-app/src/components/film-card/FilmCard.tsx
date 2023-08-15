@@ -1,14 +1,12 @@
 import './FilmCard.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
 import { Star } from '../../assets/star';
 import { BookMark } from '../../assets/bookmark';
 
 export function FilmCard({ title, voteAverage, poster_path, item }) {
     const dispatch = useDispatch();
     const isAuthorization = useSelector((state) => state.isAuthorization);
-
     const filmDescription = () => {
         dispatch({ type: 'filmDescription', payload: item });
     };
@@ -39,14 +37,18 @@ export function FilmCard({ title, voteAverage, poster_path, item }) {
                                 </>
                             ) : (
                                 <>
-                                    <Link to="./authorization">
-                                        <Star color={'transparent'}></Star>
-                                    </Link>
-                                    <Link to="./authorization">
+                                    <a>
+                                        <Star
+                                            disabled={true}
+                                            color={'transparent'}
+                                        ></Star>
+                                    </a>
+                                    <a>
                                         <BookMark
+                                            disabled={true}
                                             color={'transparent'}
                                         ></BookMark>
-                                    </Link>
+                                    </a>
                                 </>
                             )}
                         </div>

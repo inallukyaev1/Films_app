@@ -1,13 +1,17 @@
 import './authorization.css';
-import { useState, useEffect } from 'react';
-import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { CloseWindowIcon } from '../../assets/close-window';
 
 export function Authorization() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
     const isAuthorization = useSelector((state) => state.isAuthorization);
+
+    const isModalActive = useSelector(
+        (state: { isModalActive: number }) => state.isModalActive
+    );
 
     function formHandler(e) {
         e.preventDefault();
@@ -21,13 +25,29 @@ export function Authorization() {
     }
 
     return (
-        <div>
+        <>
             {isAuthorization ? null : (
-                <div className="authorization-block">
-                    <div className="wrapper">
-                        <div className="close">
-                            <Link to="/">X</Link>
-                        </div>
+                <div
+                    className={
+                        isModalActive
+                            ? 'authorization-block active'
+                            : 'authorization-block'
+                    }
+                    onClick={() =>
+                        dispatch({
+                            type: 'toggleModalWindow',
+                            payload: false,
+                        })
+                    }
+                >
+                    <div
+                        className="wrapper"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <button className="close-modal_window">
+                            <CloseWindowIcon></CloseWindowIcon>
+                        </button>
+
                         <form
                             className="form-authorization"
                             onSubmit={formHandler}
@@ -51,6 +71,6 @@ export function Authorization() {
                     </div>
                 </div>
             )}
-        </div>
+        </>
     );
 }

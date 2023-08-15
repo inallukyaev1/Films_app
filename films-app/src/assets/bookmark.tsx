@@ -1,5 +1,4 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import {
     getFromLocalStorage,
     addToLocalStorage,
@@ -71,8 +70,15 @@ export function BookMark(props) {
             <g id="SVGRepo_iconCarrier">
                 <path
                     onClick={() => {
-                        CheckedAdd();
-                        return addToWatchLater(props.item, props.title);
+                        if (!props.disabled) {
+                            CheckedAdd();
+                            return addToWatchLater(props.item, props.title);
+                        } else {
+                            dispatch({
+                                type: 'toggleModalWindow',
+                                payload: true,
+                            });
+                        }
                     }}
                     stroke="#000000"
                     strokeLinecap="round"

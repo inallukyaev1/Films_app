@@ -90,6 +90,11 @@ export const reducer = (
                 ...state,
                 isAuthorization: action.payload,
             };
+        case 'toggleModalWindow':
+            return {
+                ...state,
+                isModalActive: action.payload,
+            };
 
         default:
             return state;
