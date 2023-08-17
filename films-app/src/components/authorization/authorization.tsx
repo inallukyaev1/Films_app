@@ -40,32 +40,38 @@ export function Authorization() {
                         })
                     }
                 >
-                    <div
-                        className="wrapper"
-                        onClick={(e) => e.stopPropagation()}
-                    >
+                    <div className="wrapper">
                         <button className="close-modal_window">
                             <CloseWindowIcon></CloseWindowIcon>
                         </button>
-
                         <form
                             className="form-authorization"
                             onSubmit={formHandler}
+                            onClick={(e) => e.stopPropagation()}
                         >
-                            <label htmlFor="">Логин</label>
-                            <input
-                                type="text"
-                                className="login"
-                                onChange={(e) => setLogin(e.target.value)}
-                            />
-                            <label htmlFor="">Пороль</label>
-                            <input
-                                type="text"
-                                className="password"
-                                onChange={(e) => setPassword(e.target.value)}
-                            />
-                            <button type="submit" className="comeIn-btn">
-                                Войти
+                            <h3 className="sign-in_title">Вход</h3>
+
+                            <div className="input-form">
+                                <input
+                                    placeholder="Логин"
+                                    type="text"
+                                    className="input-login"
+                                    onChange={(e) => setLogin(e.target.value)}
+                                />
+                            </div>
+                            <div className="input-form">
+                                <input
+                                    placeholder="Пороль"
+                                    type="password"
+                                    className="input-password"
+                                    onChange={(e) =>
+                                        setPassword(e.target.value)
+                                    }
+                                />
+                            </div>
+
+                            <button className="auth-btn auth-btn_small">
+                                <a href="#"> Войти</a>
                             </button>
                         </form>
                     </div>

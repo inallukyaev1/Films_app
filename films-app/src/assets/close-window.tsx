@@ -4,10 +4,11 @@ export function CloseWindowIcon() {
     const dispatch = useDispatch();
     return (
         <svg
+            className="close-modal-window"
             width="40px"
             height="40px"
             viewBox="-2.4 -2.4 28.80 28.80"
-            fill="none"
+            fill="white"
             xmlns="http://www.w3.org/2000/svg"
             stroke="#000000"
             transform="rotate(180)"

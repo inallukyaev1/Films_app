@@ -12,6 +12,7 @@
     opacity: 0;
     pointer-events: none;
     transition: 0.5s;
+    color: white;
 }
 .authorization-block.active {
     opacity: 1;
@@ -19,27 +20,78 @@
 }
 .wrapper {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #ffaa00;
-    width: 50%;
-    height: 50%;
 }
 
 .form-authorization {
-    width: 200px;
-    background-color: rgb(2, 196, 196);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 400px;
+    background-color: #21201e;
     margin: 0px auto;
-    padding: 10px;
+    padding: 30px;
+    border-radius: 20px;
     font-size: 30px;
 }
 
 .close-modal_window {
+    border-radius: 20px;
     position: absolute;
     background-color: inherit;
     top: 0;
     right: 0;
     cursor: pointer;
     color: white;
+}
+
+form input {
+    display: block;
+}
+
+.submit_btn {
+    display: block;
+    margin-top: 20px;
+}
+
+.sign-in_title {
+    margin: 20px 0 5px 0;
+    padding: 0;
+    text-align: center;
+    font-size: 30px;
+    text-transform: uppercase;
+}
+
+.input-form {
+    margin: 10px 40px;
+    text-align: center;
+}
+
+.input-form input {
+    width: 100%;
+    padding: 10px;
+    font-size: 20px;
+    outline: none;
+    border: 1px solid #fff;
+    background: none;
+    color: #fff;
+}
+
+.input-form input[type='text']:focus,
+.input-form input[type='password']:focus {
+    border: 1px solid #6100c2;
+}
+
+.close-modal-window {
+    transition: 0.5s;
+}
+
+.close-modal-window:hover {
+    fill: #ffaa00;
+}
+
+button.auth-btn_small.auth-btn_small {
+    width: 30%;
+    margin-top: 5px;
 }

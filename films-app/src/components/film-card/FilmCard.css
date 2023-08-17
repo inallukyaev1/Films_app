@@ -73,3 +73,7 @@ svg {
 .film-details a {
     width: 100%;
 }
+
+label {
+    color: white;
+}
