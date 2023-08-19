@@ -1,4 +1,4 @@
-.listFilms-wrapper {
+.Film-list {
     position: relative;
     display: flex;
     justify-content: flex-start;
@@ -11,7 +11,7 @@
     height: 50%;
 }
 
-.film-item {
+.film-list_item {
     display: flex;
     flex: 1 0 auto;
     margin-left: 30px;

@@ -8,7 +8,9 @@
     padding: 10px 10px;
     transition: all 0.3s;
     cursor: pointer;
+    margin-left: 15px;
 }
+
 .prev-btn:hover,
 .next-btn:hover {
     box-shadow: 0px -5px 0 rgb(43, 153, 91) inset;

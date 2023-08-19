@@ -45,32 +45,32 @@ export function Authorization() {
                             <CloseWindowIcon></CloseWindowIcon>
                         </button>
                         <form
-                            className="form-authorization"
+                            className="form"
                             onSubmit={formHandler}
                             onClick={(e) => e.stopPropagation()}
                         >
-                            <h3 className="sign-in_title">Вход</h3>
+                            <h3 className="form_title">Вход</h3>
 
-                            <div className="input-form">
+                            <div className="form_input">
                                 <input
                                     placeholder="Логин"
                                     type="text"
-                                    className="input-login"
+                                    className="form_input__login"
                                     onChange={(e) => setLogin(e.target.value)}
                                 />
                             </div>
-                            <div className="input-form">
+                            <div className="form_input">
                                 <input
                                     placeholder="Пороль"
                                     type="password"
-                                    className="input-password"
+                                    className="form_input__password"
                                     onChange={(e) =>
                                         setPassword(e.target.value)
                                     }
                                 />
                             </div>
 
-                            <button className="auth-btn auth-btn_small">
+                            <button className="form_auth-btn form_auth-btn__small">
                                 <a href="#"> Войти</a>
                             </button>
                         </form>

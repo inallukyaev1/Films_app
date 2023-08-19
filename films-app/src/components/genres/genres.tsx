@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from 'react-redux';
-import './checkboxGenres.css';
+import './genres.css';
 import { addGenreAction, deleteGenreAction } from '../redux-reduce/actions';
 import { allGenre } from '../elements/elements';
 
@@ -22,7 +22,7 @@ export function Genres() {
         <fieldset>
             <legend>Выберите жанр</legend>
             {allGenre.map((item) => (
-                <div key={item.id} className="checkbox-block">
+                <div key={item.id} className="genre-checkbox">
                     <input
                         className="custom-checkbox"
                         type="checkbox"

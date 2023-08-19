@@ -59,20 +59,20 @@ export function Filters() {
         }
     }, [currentFilter, watchLater, favoriteFilms]);
     return (
-        <div className="filter-block">
-            <form action="" className="form">
+        <div className="filter">
+            <form action="" className="filter-form">
                 <button
-                    className="filter-reset"
+                    className="filter_btn"
                     type="reset"
                     onClick={resetFilters}
                 >
                     Сбросить все фильтры
                 </button>
-                <div className="sort-by">Сортировать по:</div>
+                <div className="filter-form_title">Сортировать по:</div>
                 <FilmRate />
                 {isAuthorization ? (
                     <span>
-                        <div className="sort-by">Избранное:</div>
+                        <div className="filter-form_title">Избранное:</div>
                         <select
                             name=""
                             id=""
@@ -87,7 +87,7 @@ export function Filters() {
                     </span>
                 ) : null}
 
-                <div className="sort-by">Год релиза:</div>
+                <div className="filter-form_title">Год релиза:</div>
                 <FilmsYears />
                 <Genres />
             </form>

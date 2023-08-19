@@ -34,14 +34,17 @@ export function Header() {
             <div className="container">
                 <ul className="menu-list">
                     <li className="menu-list__item">
-                        <button className="home-btn">
+                        <button className="menu-list_home-btn">
                             <Link to="/" className="menu-list__link">
                                 Главная
                             </Link>
                         </button>
                     </li>
                     <li className="menu-list__item">
-                        <button className="auth-btn" onClick={signInHandler}>
+                        <button
+                            className="menu-list_auth-btn"
+                            onClick={signInHandler}
+                        >
                             <a
                                 className="menu-list__link"
                                 onClick={() => {

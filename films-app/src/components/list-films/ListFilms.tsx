@@ -61,12 +61,12 @@ export function ListFilms() {
         currentPages,
     ]);
     return (
-        <ul className="listFilms-wrapper ">
+        <ul className="Film-list ">
             {' '}
             {catalogFilms.length === 0
                 ? 'Фильмов нет'
                 : catalogFilms.map((item: PayloadInterface) => (
-                      <li key={item.id} className="film-item">
+                      <li key={item.id} className="film-list_item">
                           <FilmCard
                               item={item}
                               poster_path={

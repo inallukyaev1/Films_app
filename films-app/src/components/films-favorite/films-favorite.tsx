@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import './films-favorite.css';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 export function FilmsFavorite() {
-    const dispatch = useDispatch();
     const isAuthorization = useSelector((state) => state.isAuthorization);
     const [checked, setChecked] = useState(false);
     const linkValue = isAuthorization ? '#' : './authorization';
@@ -37,10 +36,3 @@ export function FilmsFavorite() {
         </Link>
     );
 }
-
-/* 
-<img
-                                    src={bookmark}
-                                    alt=""
-                                    className="watch-later"
-                                /> */

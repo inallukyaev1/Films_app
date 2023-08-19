@@ -22,7 +22,7 @@
     position: relative;
 }
 
-.form-authorization {
+.form {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -55,7 +55,7 @@ form input {
     margin-top: 20px;
 }
 
-.sign-in_title {
+.form_title {
     margin: 20px 0 5px 0;
     padding: 0;
     text-align: center;
@@ -63,12 +63,12 @@ form input {
     text-transform: uppercase;
 }
 
-.input-form {
+.form_input {
     margin: 10px 40px;
     text-align: center;
 }
 
-.input-form input {
+.form_input input {
     width: 100%;
     padding: 10px;
     font-size: 20px;
@@ -78,8 +78,8 @@ form input {
     color: #fff;
 }
 
-.input-form input[type='text']:focus,
-.input-form input[type='password']:focus {
+.form_input input[type='text']:focus,
+.form_input input[type='password']:focus {
     border: 1px solid #6100c2;
 }
 
@@ -91,7 +91,8 @@ form input {
     fill: #ffaa00;
 }
 
-button.auth-btn_small.auth-btn_small {
+button.form_auth-btn.form_auth-btn__small {
     width: 30%;
     margin-top: 5px;
+    border-radius: 10px;
 }

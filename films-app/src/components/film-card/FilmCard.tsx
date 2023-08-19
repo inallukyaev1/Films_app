@@ -14,19 +14,17 @@ export function FilmCard({ title, voteAverage, poster_path, item }) {
     return (
         <div className="film-card">
             <div className="film-card_wrapper">
-                <div className="film-poster">
+                <div className="film-card_poster">
                     <img
                         src={`https://image.tmdb.org/t/p/w300${poster_path}`}
                         className="img-card"
                         alt="#"
                     />
                 </div>
-                <div className="film-info">
-                    <div className="rate">
-                        <span className="film-rate">
-                            Рейтинг: {voteAverage}
-                        </span>
-                        <div className="films-favorite">
+                <div className="film-card_info">
+                    <div className="film-card_rate">
+                        Рейтинг: {voteAverage}
+                        <div className="film-card_favorite">
                             {isAuthorization ? (
                                 <>
                                     <Star item={item} title={title}></Star>
@@ -53,13 +51,13 @@ export function FilmCard({ title, voteAverage, poster_path, item }) {
                             )}
                         </div>
                     </div>
-                    <h3 className="film-title">{title}</h3>
-                    <button className="film-details">
+                    <h3 className="film-card_title">{title}</h3>
+                    <button className="film-card_details">
                         <Link
                             onClick={filmDescription}
                             to="./film-description"
                             title={title}
-                            className="film-more-link"
+                            className="film-card_link"
                         >
                             Подробнее
                         </Link>

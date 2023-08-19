@@ -12,12 +12,12 @@
     height: 100%;
 }
 
-.film-title {
+.film-card_title {
     text-align: center;
     font-size: 20px;
 }
 
-.rate {
+.film-card_rate {
     display: flex;
     justify-content: space-between;
 }
@@ -28,7 +28,7 @@ svg {
 .red {
     background-color: red;
 }
-.film-poster {
+.film-card_poster {
     height: 450px;
 }
 
@@ -37,24 +37,22 @@ svg {
     height: 100%;
     width: 100%;
 }
-.films-favorite {
+.film-card_favorite {
     display: block;
 }
 
-.film-details {
-    text-align: center;
-}
-.film-info {
+.film-card_info {
     display: flex;
     flex-direction: column;
     flex: 1 1 auto;
     padding: 10px;
 }
-.film-title {
+.film-card_title {
     flex: 1 1 auto;
 }
 
-.film-details {
+.film-card_details {
+    text-align: center;
     height: 43px;
     font-weight: 400;
     display: flex;
@@ -67,10 +65,10 @@ svg {
     background-color: #21201e;
 }
 
-.film-details:hover {
+.film-card_details:hover {
     background-color: #6100c2;
 }
-.film-details a {
+.film-card_details a {
     width: 100%;
 }
 

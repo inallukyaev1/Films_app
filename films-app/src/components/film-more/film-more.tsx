@@ -9,26 +9,20 @@ export function FilmMore() {
         useSelector((state: DefaultStateInterface) => state.filmDescription);
 
     return (
-        <div className="film-more-inner">
+        <>
             <Header></Header>
 
             <div className="container">
-                <div className="film-more">
-                    <div
-                        className="film-more-wrapper"
-                        /* style={{
-                background: `url(https://image.tmdb.org/t/p/w500${backdrop_path})  no-repeat 93% center / contain`,
-                backgroundColor: 'black',
-            }} */
-                    >
+                <div className="film-about">
+                    <div className="film-about_wrapper">
                         <Authorization></Authorization>
-                        <div className="posters">
+                        <div className="film-about_poster-block">
                             <img
                                 src={`https://image.tmdb.org/t/p/w500${backdrop_path}`}
-                                className="img-background"
+                                className="film-about_background"
                             />
 
-                            <div className="film-card_poster">
+                            <div className="film-about_poster">
                                 <img
                                     src={`https://image.tmdb.org/t/p/w300${poster_path}`}
                                     alt=""
@@ -36,16 +30,16 @@ export function FilmMore() {
                             </div>
                         </div>
 
-                        <div className="film-more__card">
-                            <div className="title">{title}</div>
-                            <div className="film-descr">{overview}</div>
-                            <div className="film-realise__date">
+                        <div className="film-about_card">
+                            <div className="film-about_title">{title}</div>
+                            <div className="film-about_descr">{overview}</div>
+                            <div className="film-about_date">
                                 Дата выхода : {release_date}
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </>
     );
 }

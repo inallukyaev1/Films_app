@@ -16,7 +16,15 @@ svg {
 path {
     cursor: pointer;
 }
-
+fieldset {
+    border: none;
+    margin: 0;
+    margin-left: 36px;
+}
+label,
+input {
+    cursor: pointer;
+}
 label {
     cursor: default;
 }
@@ -38,9 +46,11 @@ button {
 button {
     border: none;
 }
-button.auth-btn,
-button.home-btn,
-button.filter-reset {
+
+.form_auth-btn__small,
+.menu-list_auth-btn,
+.menu-list_home-btn,
+button.filter_btn {
     -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
         0 1px 2px rgba(0, 0, 0, 0.08);
     -moz-box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.2),
@@ -69,8 +79,9 @@ button.filter-reset {
     border-radius: 10px;
 }
 
-button.auth-btn a,
-button.home-btn a,
+button.form_auth-btn,
+button.menu-list_auth-btn a,
+button.menu-list_home-btn a,
 button.filter-reset a,
 .film-details a {
     display: inline-block;
@@ -82,9 +93,9 @@ button {
     padding: 0;
 }
 
-button.auth-btn:hover,
-button.home-btn:hover,
-button.filter-reset:hover,
+button.menu-list_auth-btn:hover,
+button.menu-list_home-btn:hover,
+button.filter_btn:hover,
 .comeIn-btn:hover {
     background-color: #5801b0;
 }
