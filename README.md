@@ -20,6 +20,8 @@ Movies is a React-based movie website that allows users to search for movies by 
 
 ### Used libraries
 react-router
+## Project Link :
+✨ **[Films app](https://elaborate-croquembouche-2f96a1.netlify.app/)**
 ## Available Scripts
 
 In the project directory, you can run:
@@ -43,5 +45,4 @@ It correctly bundles React in production mode and optimizes the build for the be
 The build is minified and the filenames include the hashes.\
 \
 Your app is ready to be deployed!
-## Project Link :
-✨ **[Films app](https://elaborate-croquembouche-2f96a1.netlify.app/)**
+
