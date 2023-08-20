@@ -13,11 +13,11 @@ export function CloseWindowIcon() {
             stroke="#000000"
             transform="rotate(180)"
         >
-            <g id="SVGRepo_bgCarrier" stroke-width="0"></g>
+            <g id="SVGRepo_bgCarrier" strokeWidth="0"></g>
             <g
                 id="SVGRepo_tracerCarrier"
-                stroke-linecap="round"
-                stroke-linejoin="round"
+                strokeLinecap="round"
+                strokeLinejoin="round"
             ></g>
             <g id="SVGRepo_iconCarrier">
                 {' '}
@@ -33,13 +33,13 @@ export function CloseWindowIcon() {
                     cy="12"
                     r="10"
                     stroke="#1C274C"
-                    stroke-width="0.8399999999999999"
+                    strokeWidth="0.8399999999999999"
                 ></circle>{' '}
                 <path
                     d="M14.5 9.50002L9.5 14.5M9.49998 9.5L14.5 14.5"
                     stroke="#1C274C"
-                    stroke-width="0.8399999999999999"
-                    stroke-linecap="round"
+                    strokeWidth="0.8399999999999999"
+                    strokeLinecap="round"
                 ></path>{' '}
             </g>
         </svg>

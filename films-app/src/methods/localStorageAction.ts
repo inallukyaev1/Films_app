@@ -3,5 +3,9 @@ export function addToLocalStorage(key: string, value: {}) {
 }
 
 export function getFromLocalStorage(key: string) {
-    return JSON.parse(localStorage.getItem(key) || '');
+    const response = JSON.parse(localStorage.getItem(key) || '{}') || '';
+    if (Array.isArray(response)) {
+        return response;
+    }
+    return [];
 }

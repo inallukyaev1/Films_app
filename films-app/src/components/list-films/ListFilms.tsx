@@ -14,6 +14,7 @@ export function ListFilms() {
     const [favoriteFilms, setfavoriteFilms] = useState(
         getFromLocalStorage('listFilmFavorite') || []
     );
+    console.log(getFromLocalStorage('listFilmFavorite'));
     const [listFilmsLater, setListFilmsLater] = useState(
         getFromLocalStorage('listFilmsLater') || []
     );

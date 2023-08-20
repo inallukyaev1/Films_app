@@ -33,7 +33,6 @@ export function FilmCard({
                 <div className="film-card_info">
                     <div className="film-card_rate">
                         Рейтинг: {voteAverage}
-                        {console.log(favoriteFilms)}
                         <div className="film-card_favorite">
                             {isAuthorization ? (
                                 <>
