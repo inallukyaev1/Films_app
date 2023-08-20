@@ -4,7 +4,7 @@ import './films-favorite.css';
 import { useState } from 'react';
 
 export function FilmsFavorite() {
-    const isAuthorization = useSelector((state) => state.isAuthorization);
+    const isAuthorization = useSelector((state: any) => state.isAuthorization);
     const [checked, setChecked] = useState(false);
     const linkValue = isAuthorization ? '#' : './authorization';
     function addFavoriteFilm() {

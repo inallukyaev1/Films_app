@@ -19,7 +19,7 @@ export function NextPage() {
             className={
                 currentPage === OtherPage ? 'next-btn disabled ' : 'next-btn'
             }
-            disabled={currentPage === OtherPage ? 'disabled' : null}
+            disabled={currentPage === OtherPage ? true : undefined}
         >
             Вперед
         </button>

@@ -13,9 +13,9 @@ export function FilmCard({
     voteAverage,
     poster_path,
     item,
-}) {
+}: any) {
     const dispatch = useDispatch();
-    const isAuthorization = useSelector((state) => state.isAuthorization);
+    const isAuthorization = useSelector((state: any) => state.isAuthorization);
     const filmDescription = () => {
         dispatch({ type: 'filmDescription', payload: item });
     };

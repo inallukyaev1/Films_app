@@ -2,7 +2,7 @@ import { PayloadInterface } from '../components/elements/elements';
 import { useSelector } from 'react-redux';
 export function sortFilmsByGenre(
     unsortedFilm: PayloadInterface[],
-    ids: []
+    ids: [] | any
 ): PayloadInterface[] {
     if (ids.length === 0) {
         return unsortedFilm;
@@ -10,7 +10,7 @@ export function sortFilmsByGenre(
 
     const sortedFilms: PayloadInterface[] = [];
     unsortedFilm.forEach((item) => {
-        let is_same = item.genre_ids.some(function (element: number): boolean {
+        let is_same: any = item.genre_ids.some(function (element): any {
             return ids.includes(element);
         });
 
@@ -106,14 +106,14 @@ export function sortFilmsByValue(
     }
 }
 
-export function exampleWatchLater(item, watchLater) {
+export function exampleWatchLater(item: any, watchLater: any) {
     const gg = [...watchLater];
     if (gg.length === 0) {
         gg.push(item);
         return gg;
     }
 
-    watchLater.forEach((title) => {
+    watchLater.forEach((title: any) => {
         if (title === item.title) {
             return gg;
         } else {

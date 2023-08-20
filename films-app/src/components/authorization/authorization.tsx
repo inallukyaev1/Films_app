@@ -7,13 +7,13 @@ export function Authorization() {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const dispatch = useDispatch();
-    const isAuthorization = useSelector((state) => state.isAuthorization);
+    const isAuthorization = useSelector((state: any) => state.isAuthorization);
 
     const isModalActive = useSelector(
         (state: { isModalActive: number }) => state.isModalActive
     );
 
-    function formHandler(e) {
+    function formHandler(e: any) {
         e.preventDefault();
         if (login === 'Инал' && password === 'Лукьяев') {
             console.log('Добро Пожаловать');

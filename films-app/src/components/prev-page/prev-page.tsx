@@ -17,7 +17,7 @@ export function PrevPage() {
         <button
             onClick={PrevCurrentPageHandler}
             className={currentPage === 1 ? 'prev-btn disabled ' : 'prev-btn'}
-            disabled={currentPage === 1 ? 'disabled' : null}
+            disabled={currentPage === 1 ? true : undefined}
         >
             Назад
         </button>

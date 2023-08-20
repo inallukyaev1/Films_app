@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
 import { addToLocalStorage } from '../methods/localStorageAction';
 import { useState, useEffect } from 'react';
-import { PayloadInterface } from '../elements/elements';
+import { PayloadInterface } from '../components/elements/elements';
 
-export function Star(props) {
+export function Star(props: any) {
     const dispatch = useDispatch();
 
     const addFavoriteFilms = (item_films: PayloadInterface, title: string) => {
@@ -40,7 +40,7 @@ export function Star(props) {
     };
 
     const [favoriteChecked, setfavoriteChecked] = useState(
-        props.favoriteFilms.filter((item) => item.title === props.title)
+        props.favoriteFilms.filter((item: any) => item.title === props.title)
             .length !== 0
             ? true
             : false

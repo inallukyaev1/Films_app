@@ -4,9 +4,9 @@ import { createStore } from 'redux';
 export const reducer = (
     state = defaultState,
     action: {
-        type: string;
-        payload: [];
-        calculatedNumber: number;
+        type: any;
+        payload: any;
+        calculatedNumber: any;
     }
 ) => {
     switch (action.type) {
