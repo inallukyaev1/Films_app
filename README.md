@@ -1,4 +1,4 @@
-# Films_app
+# Films App
 Movies is a React-based movie website that allows users to search for movies by title, sort them by genre and bookmark their favorite movies. The website is designed to be user-friendly and visually appealing.
 
 
