@@ -12,11 +12,10 @@ import { PayloadInterface } from '../elements/elements';
 export function ListFilms() {
     const dispatch = useDispatch();
     const [favoriteFilms, setfavoriteFilms] = useState(
-        getFromLocalStorage('listFilmFavorite') || []
+        getFromLocalStorage('listFilmFavorite', [])
     );
-    console.log(getFromLocalStorage('listFilmFavorite'));
     const [listFilmsLater, setListFilmsLater] = useState(
-        getFromLocalStorage('listFilmsLater') || []
+        getFromLocalStorage('listFilmsLater', [])
     );
     const [startSlice] = useSelector(
         (state: { currentListFilm: number[] }) => state.currentListFilm

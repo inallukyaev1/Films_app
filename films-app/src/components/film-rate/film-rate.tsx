@@ -9,7 +9,7 @@ export function FilmRate() {
         dispatch(filterFilmsPopularityAction(e.target.value));
     };
     return (
-        <select name="filter-films" id="" onChange={(e) => filterForValue(e)}>
+        <select name="filter-films" onChange={(e) => filterForValue(e)}>
             {popularityFilmsSort.map((item) => (
                 <option key={item} value={item}>
                     {item}

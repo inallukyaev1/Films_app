@@ -7,7 +7,6 @@ export function Star(props: any) {
     const dispatch = useDispatch();
 
     const addFavoriteFilms = (item_films: PayloadInterface, title: string) => {
-        console.log(props.favoriteFilms);
         if (props.favoriteFilms.length === 0) {
             props.setfavoriteFilms((el: []) => [...el, item_films]);
             addToLocalStorage('listFilmFavorite', [item_films]);
@@ -47,7 +46,6 @@ export function Star(props: any) {
     );
 
     useEffect(() => {
-        console.log(props.favoriteFilms);
         dispatch({ type: 'addFavoriteFilms', payload: props.favoriteFilms });
     }, [props.favoriteFilms]);
 

@@ -11,8 +11,10 @@ export function Header() {
     const isModalActive = useSelector(
         (state: { isModalActive: number }) => state.isModalActive
     );
-    const AuthorizationLS: string | any[] =
-        getFromLocalStorage('isAuthorization');
+    const AuthorizationLS: string | any[] = getFromLocalStorage(
+        'isAuthorization',
+        false
+    );
 
     const isAuthorization = useSelector(
         (state: DefaultStateInterface) => state.isAuthorization
