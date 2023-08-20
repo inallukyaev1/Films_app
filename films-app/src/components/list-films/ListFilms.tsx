@@ -11,11 +11,14 @@ import {
 import { PayloadInterface } from '../elements/elements';
 export function ListFilms() {
     const dispatch = useDispatch();
-    const [startSlice] = useSelector(
-        (state: { currentListFilm: number[] }) => state.currentListFilm
+    const [favoriteFilms, setfavoriteFilms] = useState(
+        getFromLocalStorage('listFilmFavorite') || []
     );
     const [listFilmsLater, setListFilmsLater] = useState(
         getFromLocalStorage('listFilmsLater') || []
+    );
+    const [startSlice] = useSelector(
+        (state: { currentListFilm: number[] }) => state.currentListFilm
     );
 
     const genreIds = useSelector((state: { genreId: [] }) => state.genreId);
@@ -57,7 +60,6 @@ export function ListFilms() {
         valuePopularity,
         currentYear,
         allFilms,
-        listFilmsLater,
         currentPages,
     ]);
     return (
@@ -66,8 +68,16 @@ export function ListFilms() {
             {catalogFilms.length === 0
                 ? 'Фильмов нет'
                 : catalogFilms.map((item: PayloadInterface) => (
-                      <li key={item.id} className="film-list_item">
+                      <li
+                          key={item.id}
+                          className="film-list_item"
+                          style={{ flex: 'none' }}
+                      >
                           <FilmCard
+                              listFilmsLater={listFilmsLater}
+                              setListFilmsLater={setListFilmsLater}
+                              favoriteFilms={favoriteFilms}
+                              setfavoriteFilms={setfavoriteFilms}
                               item={item}
                               poster_path={
                                   item.poster_path || item.backdrop_path

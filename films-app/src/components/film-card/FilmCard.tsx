@@ -4,7 +4,16 @@ import { Link } from 'react-router-dom';
 import { Star } from '../../assets/star';
 import { BookMark } from '../../assets/bookmark';
 
-export function FilmCard({ title, voteAverage, poster_path, item }) {
+export function FilmCard({
+    listFilmsLater,
+    setListFilmsLater,
+    favoriteFilms,
+    setfavoriteFilms,
+    title,
+    voteAverage,
+    poster_path,
+    item,
+}) {
     const dispatch = useDispatch();
     const isAuthorization = useSelector((state) => state.isAuthorization);
     const filmDescription = () => {
@@ -24,11 +33,19 @@ export function FilmCard({ title, voteAverage, poster_path, item }) {
                 <div className="film-card_info">
                     <div className="film-card_rate">
                         Рейтинг: {voteAverage}
+                        {console.log(favoriteFilms)}
                         <div className="film-card_favorite">
                             {isAuthorization ? (
                                 <>
-                                    <Star item={item} title={title}></Star>
+                                    <Star
+                                        favoriteFilms={favoriteFilms}
+                                        setfavoriteFilms={setfavoriteFilms}
+                                        item={item}
+                                        title={title}
+                                    ></Star>
                                     <BookMark
+                                        listFilmsLater={listFilmsLater}
+                                        setListFilmsLater={setListFilmsLater}
                                         item={item}
                                         title={title}
                                     ></BookMark>
@@ -37,12 +54,16 @@ export function FilmCard({ title, voteAverage, poster_path, item }) {
                                 <>
                                     <a>
                                         <Star
+                                            favoriteFilms={[]}
+                                            setfavoriteFilms={[]}
                                             disabled={true}
                                             color={'transparent'}
                                         ></Star>
                                     </a>
                                     <a>
                                         <BookMark
+                                            listFilmsLater={[]}
+                                            setListFilmsLater={[]}
                                             disabled={true}
                                             color={'transparent'}
                                         ></BookMark>

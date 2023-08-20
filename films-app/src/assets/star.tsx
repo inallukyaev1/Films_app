@@ -1,43 +1,36 @@
-import { useDispatch, useSelector } from 'react-redux';
-import {
-    getFromLocalStorage,
-    addToLocalStorage,
-} from '../methods/localStorageAction';
+import { useDispatch } from 'react-redux';
+import { addToLocalStorage } from '../methods/localStorageAction';
 import { useState, useEffect } from 'react';
 import { PayloadInterface } from '../elements/elements';
 
 export function Star(props) {
     const dispatch = useDispatch();
-    const isModalActive = useSelector(
-        (state: { isModalActive: number }) => state.isModalActive
-    );
-    const [favoriteFilms, setfavoriteFilms] = useState(
-        getFromLocalStorage('listFilmFavorite') || []
-    );
+
     const addFavoriteFilms = (item_films: PayloadInterface, title: string) => {
-        if (favoriteFilms.length === 0) {
-            setfavoriteFilms((el: []) => [...el, item_films]);
+        console.log(props.favoriteFilms);
+        if (props.favoriteFilms.length === 0) {
+            props.setfavoriteFilms((el: []) => [...el, item_films]);
             addToLocalStorage('listFilmFavorite', [item_films]);
             return;
         }
-        const filteredFilmLater = favoriteFilms.filter(
+        const filteredFilmLater = props.favoriteFilms.filter(
             (item: PayloadInterface) => item.title === title
         );
         if (filteredFilmLater.length === 0) {
-            setfavoriteFilms((el: PayloadInterface[]) => {
+            props.setfavoriteFilms((el: PayloadInterface[]) => {
                 return [...el, item_films];
             });
             addToLocalStorage('listFilmFavorite', [
-                ...favoriteFilms,
+                ...props.favoriteFilms,
                 item_films,
             ]);
             return;
         } else {
-            const filteredFilmLater = favoriteFilms.filter(
+            const filteredFilmLater = props.favoriteFilms.filter(
                 (item: PayloadInterface) => item.title !== title
             );
 
-            setfavoriteFilms(() => filteredFilmLater);
+            props.setfavoriteFilms(() => filteredFilmLater);
             addToLocalStorage('listFilmFavorite', filteredFilmLater);
         }
     };
@@ -47,14 +40,16 @@ export function Star(props) {
     };
 
     const [favoriteChecked, setfavoriteChecked] = useState(
-        favoriteFilms.filter((item) => item.title === props.title).length !== 0
+        props.favoriteFilms.filter((item) => item.title === props.title)
+            .length !== 0
             ? true
             : false
     );
 
     useEffect(() => {
-        dispatch({ type: 'addFavoriteFilms', payload: favoriteFilms });
-    }, [favoriteFilms]);
+        console.log(props.favoriteFilms);
+        dispatch({ type: 'addFavoriteFilms', payload: props.favoriteFilms });
+    }, [props.favoriteFilms]);
 
     return (
         <svg

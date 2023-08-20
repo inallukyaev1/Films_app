@@ -1,44 +1,46 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {
-    getFromLocalStorage,
-    addToLocalStorage,
-} from '../methods/localStorageAction';
+import { addToLocalStorage } from '../methods/localStorageAction';
 import { useState, useEffect } from 'react';
 import { PayloadInterface } from '../elements/elements';
 
 export function BookMark(props) {
     const dispatch = useDispatch();
-    const [listFilmsLater, setListFilmsLater] = useState(
-        getFromLocalStorage('listFilmsLater') || []
-    );
+
     const addToWatchLater = (item_films: PayloadInterface[], title: string) => {
-        if (listFilmsLater.length === 0) {
-            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
+        if (props.listFilmsLater.length === 0) {
+            props.setListFilmsLater((el: PayloadInterface[]) => [
+                ...el,
+                item_films,
+            ]);
             addToLocalStorage('listFilmsLater', [item_films]);
             return;
         }
 
-        const filteredFilmLater = listFilmsLater.filter(
+        const filteredFilmLater = props.listFilmsLater.filter(
             (item: PayloadInterface) => item.title === title
         );
         if (filteredFilmLater.length === 0) {
-            setListFilmsLater((el: PayloadInterface[]) => [...el, item_films]);
+            props.setListFilmsLater((el: PayloadInterface[]) => [
+                ...el,
+                item_films,
+            ]);
             addToLocalStorage('listFilmsLater', [
-                ...listFilmsLater,
+                ...props.listFilmsLater,
                 item_films,
             ]);
             return;
         } else {
-            const filteredFilmLater = listFilmsLater.filter(
+            const filteredFilmLater = props.listFilmsLater.filter(
                 (item: PayloadInterface) => item.title !== title
             );
-            setListFilmsLater(() => filteredFilmLater);
+            props.setListFilmsLater(() => filteredFilmLater);
 
             addToLocalStorage('listFilmsLater', filteredFilmLater);
         }
     };
     const [checked, setChecked] = useState(
-        listFilmsLater.filter((item) => item.title === props.title).length !== 0
+        props.listFilmsLater.filter((item) => item.title === props.title)
+            .length !== 0
             ? true
             : false
     );
@@ -49,9 +51,9 @@ export function BookMark(props) {
     useEffect(() => {
         dispatch({
             type: 'addWatchLater',
-            payload: listFilmsLater,
+            payload: props.listFilmsLater,
         });
-    }, [listFilmsLater]);
+    }, [props.listFilmsLater]);
 
     return (
         <svg

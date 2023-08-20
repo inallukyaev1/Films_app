@@ -40,7 +40,7 @@ export function Authorization() {
                         })
                     }
                 >
-                    <div className="wrapper">
+                    <div className="form-wrapper">
                         <button className="close-modal_window">
                             <CloseWindowIcon></CloseWindowIcon>
                         </button>
